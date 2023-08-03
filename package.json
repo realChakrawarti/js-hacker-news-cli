@@ -1,0 +1,22 @@
+{
+  "name": "hackernews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hknews.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hknews.js"
+  },
+  "bin": {
+    "hackr": "./version.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.9",
+    "fflate": "^0.8.0",
+    "jsdom": "^22.1.0",
+    "say": "^0.16.0"
+  }
+}
