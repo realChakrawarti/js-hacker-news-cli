@@ -2,6 +2,7 @@
 
 const { JSDOM } = require("jsdom");
 const dayjs = require("dayjs");
+const notifier = require("node-notifier")
 const gzFile = require("./utils/gzFile");
 const ScrapePage = require("./utils/ScrapePage");
 
@@ -34,6 +35,14 @@ async function getArticlesOfTheDay(backDate) {
     saveOnDisk(`./_data_/`, `${date}.json`, arr);
 
     await gzFile.compress(`./_data_/${date}.json`, `./_data_/${date}.json.gz`);
+
+    notifier.notify({
+        title: `Fetched Frontpage posts `,
+        message: `${arr.length} posts retrived for ${date}`,
+        icon: 'Terminal Icon',
+        id: Date.now().toString,
+        appID: 'Hackr'
+    });
 }
 
 if (process.argv.length == 2) console.log("Provide a back date!");
