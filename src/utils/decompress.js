@@ -1,5 +1,5 @@
 const { promisify } = require("node:util");
-const {createReadStream, createWriteStream } = require("fs");
+const { createReadStream, createWriteStream } = require("fs");
 const { createUnzip } = require("node:zlib");
 const { pipeline } = require("node:stream");
 
@@ -13,4 +13,4 @@ async function decompress(input, output) {
     await pipe(source, unzip, destination);
 }
 
-exports.Extract = decompress
+exports.Extract = decompress;

@@ -3,3 +3,6 @@ node_modules
 
 # Lockfile
 package-lock.json
+
+# Test data
+_data_

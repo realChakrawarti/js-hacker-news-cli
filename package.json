@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "hknews.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node hknews.js"
   },
   "bin": {
-    "hackr": "./version.js"
+    "hackr": "./src/version.js"
   },
   "keywords": [],
   "author": "",
