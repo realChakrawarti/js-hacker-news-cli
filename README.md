@@ -4,6 +4,7 @@ Base URL: https://news.ycombinator.com/
 
 - front?day=`YYYY-MM-DD`&p=`PAGE_NUMBER`
 - news?p=25: 25 pages max
+- launches
 - newest
 - asknew
 - ask
