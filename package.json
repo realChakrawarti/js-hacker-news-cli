@@ -1,24 +1,29 @@
 {
-  "name": "hackernews",
-  "version": "1.0.0",
-  "description": "",
+  "name": "hackr",
+  "version": "0.1.0",
+  "description": "A node based CLI client for Hacker News",
   "main": "hknews.js",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node hknews.js"
   },
   "bin": {
-    "hackr": "./src/version.js"
+    "hackr": "./src/main.js",
+    "test": "./src/commands/Test.js",
+    "web": "src/version.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@colors/colors": "^1.6.0",
+    "cli-table3": "^0.6.3",
+    "clipanion": "^4.0.0-rc.2",
     "dayjs": "^1.11.9",
     "fflate": "^0.8.0",
     "jsdom": "^22.1.0",
     "node-notifier": "^10.0.1",
-    "say": "^0.16.0"
+    "say": "^0.16.0",
+    "terminal-link": "^2.1.1"
   }
 }
