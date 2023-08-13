@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@colors/colors": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
     "cli-table3": "^0.6.3",
     "clipanion": "^4.0.0-rc.2",
     "dayjs": "^1.11.9",

@@ -1,38 +1,40 @@
+const cheerio = require('cheerio')
 const PostInfo = require("./PostInfo");
 
 const allPosts = [];
 
 class ScrapePage {
     #postElements;
-    #dom;
+    #pageHtml;
 
-    constructor(dom) {
-        this.#dom = dom;
+    constructor(html) {
+    this.#pageHtml = cheerio.load(html)
+    this.#setPostElements();
+    this.#setAllPosts()
     }
 
     #setPostElements() {
         this.#postElements =
-            this.#dom.window.document.querySelectorAll(".athing");
+            this.#pageHtml(".athing");
     }
 
     #getPostElements() {
         return this.#postElements;
     }
 
-    getPosts() {
-        this.#setPostElements();
+    #setAllPosts() {
         const elements = this.#getPostElements();
         for (let item of elements) {
-            const post = new PostInfo(item, this.#dom);
+            const post = new PostInfo(item, this.#pageHtml);
             allPosts.push(post.getPostInfo());
         }
     }
 
     getNextPage() {
-        const moreLink = this.#dom.window.document.querySelector(".morelink");
+        const moreLink = this.#pageHtml(".morelink");
 
         if (moreLink) {
-            return moreLink.getAttribute("href");
+            return moreLink.attr("href");
         }
 
         return null;

@@ -22,18 +22,14 @@ function getArticlesOfTheDay(backDate) {
         if (err) {
             console.log(`${path} does not exist`);
             let nextPage = `front?day=${date}`;
-            let dom;
+
             do {
                 const URL = baseUrl + nextPage;
                 console.log("Scraping:", URL);
                 const response = await fetch(URL);
                 const html = await response.text();
-                dom = new JSDOM(html, {
-                    contentType: "text/html",
-                });
-
-                const page = new ScrapePage(dom);
-                page.getPosts();
+            
+                const page = new ScrapePage(html);
                 nextPage = page.getNextPage();
             } while (nextPage);
 
@@ -47,7 +43,7 @@ function getArticlesOfTheDay(backDate) {
             );
 
             notifier.notify({
-                title: `Fetched Frontpage posts `,
+                title: `Fetched Frontpage posts`,
                 message: `${arr.length} posts retrived for ${date}`,
                 icon: "Terminal Icon",
                 id: Date.now().toString,
@@ -55,8 +51,8 @@ function getArticlesOfTheDay(backDate) {
             });
         }
 
-        const data = readFileFromDisk(path);
-        console.log("Data", data);
+        // const data = readFileFromDisk(path);
+        // console.log("Data", data);
     });
 }
 

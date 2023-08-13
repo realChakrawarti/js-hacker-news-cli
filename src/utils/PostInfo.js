@@ -1,6 +1,6 @@
 class PostInfo {
-    #dom;
     #item;
+    #pageHtml;
 
     #id;
 
@@ -8,40 +8,58 @@ class PostInfo {
         id: "",
         title: "",
         link: "",
+        age: "",
         score: "",
         comment: "",
     };
 
-    constructor(item, dom) {
-        this.#dom = dom;
-        this.#item = item;
+    constructor(item, html) {
+        this.#pageHtml = html
+        this.#item = this.#pageHtml(item)
+
+        this.#setId()
+        this.#setPost()
+    }
+
+    #setId() {
+        this.#id = this.#item.attr("id")
     }
 
     #getId() {
-        this.#id = this.#item.getAttribute("id");
         return this.#id;
     }
 
     #getTitle() {
-        return this.#item.querySelector(".titleline").children[0].textContent;
+        // console.log("Title", this.#item.find(".titleline").children().first().text())
+        return this.#item.find(".titleline").children().first().text()
     }
 
     #getLink() {
-        return this.#item
-            .querySelector(".titleline")
-            .children[0].getAttribute("href");
+        // console.log("Link", this.#item.find(".titleline")
+        // .children().first().attr("href"))
+        return this.#item.find(".titleline")
+            .children().first().attr("href");
     }
 
     #getScore() {
-        return this.#dom.window.document
-            .querySelector(`#score_${this.#id}`)
-            .textContent.match(/\d+/)[0];
+        // console.log("Score", this.#pageHtml(`#score_${this.#id}`).text().match(/\d+/)[0])
+        return this.#pageHtml(`#score_${this.#id}`).text().match(/\d+/)[0];
+    }
+
+    #getAge() {
+        // const currentTime = new Date();
+        return this.#pageHtml(`#score_${this.#id}`)
+        .parent().find(".age").attr("title")
+
+        // TODO: Return minutes/ hours/ days to help in sorting by new-old
     }
 
     #getComment() {
-        const comments = this.#dom.window.document
-            .querySelector(`#score_${this.#id}`)
-            .parentElement.children[5].textContent.match(/\d+/)
+        // console.log("Comments", this.#pageHtml(`#score_${this.#id}`)
+        // .parent().children().last().text().match(/\d+/)
+        // ?.at(0))
+        const comments = this.#pageHtml(`#score_${this.#id}`)
+            .parent().children().last().text().match(/\d+/)
             ?.at(0);
 
         return comments ?? "0";
@@ -52,13 +70,13 @@ class PostInfo {
             id: this.#getId(),
             title: this.#getTitle(),
             link: this.#getLink(),
+            age: this.#getAge(),
             score: this.#getScore(),
             comment: this.#getComment(),
         };
     }
 
     getPostInfo() {
-        this.#setPost();
         return this.#post;
     }
 }
