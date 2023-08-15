@@ -2,6 +2,7 @@
 
 import {Cli, Builtins} from 'clipanion';
 import { readPackageJson } from './utils/readPackageJson.js';
+import Frontpage from './commands/Frontpage.js';
 
 const packageJson = await readPackageJson()
 
@@ -11,7 +12,14 @@ const cli = new Cli({
     binaryLabel: packageJson.name,
     binaryName: `${node} ${app}`,
     binaryVersion: packageJson.version,
+    enableCapture: true // converts console.* -> this.context.stdout.write
 })
+
+// App commands
+
+cli.register(Frontpage)
+
+// Built-ins
 
 cli.register(Builtins.HelpCommand);
 cli.register(Builtins.VersionCommand);

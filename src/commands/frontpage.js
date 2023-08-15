@@ -1,30 +1,26 @@
-class HelloCommand extends Command {
-    static paths = [
-      [`my-command`],
-    ];
-   
+import { Command, Option } from "clipanion";
+import { getArticlesOfTheDay } from "../utils/fetchData.js";
+
+class Frontpage extends Command {
+    static paths = [["-fp"], ["-frontpage"]];
+
     static usage = Command.Usage({
-      category: `My category`,
-      description: `A small description of the command.`,
-      details: `
-        A longer description of the command with some \`markdown code\`.
-        
-        Multiple paragraphs are allowed. Clipanion will take care of both reindenting the content and wrapping the paragraphs as needed.
-      `,
-      examples: [[
-        `A basic example`,
-        `$0 my-command`,
-      ], [
-        `A second example`,
-        `$0 my-command --with-parameter`,
-      ]],
+        category: "Scrape HN",
+        description: `Get frontpage posts`,
     });
-   
-    p = Option.Boolean(`--with-parameter`);
-   
+
+    backDate = Option.String({ required: true });
+
     async execute() {
-      this.context.stdout.write(
-        this.p ? `Called with parameter` : `Called without parameter`
-      );
+        if (parseInt(this.backDate) > 0) {
+            this.context.stdout.write(
+                `Getting data posted ${this.backDate} ago!`
+            );
+            getArticlesOfTheDay(this.backDate)
+        } else {
+            this.context.stdout.write("Invalid back date received.");
+        }
     }
-  }
+}
+
+export default Frontpage;
