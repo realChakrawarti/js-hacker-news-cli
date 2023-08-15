@@ -81,4 +81,4 @@ class PostInfo {
     }
 }
 
-module.exports = PostInfo;
+export default PostInfo;

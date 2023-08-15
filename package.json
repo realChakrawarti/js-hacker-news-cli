@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A node based CLI client for Hacker News",
   "main": "hknews.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "start": "node hknews.js"
   },
@@ -21,8 +21,6 @@
     "cli-table3": "^0.6.3",
     "clipanion": "^4.0.0-rc.2",
     "dayjs": "^1.11.9",
-    "fflate": "^0.8.0",
-    "jsdom": "^22.1.0",
     "node-notifier": "^10.0.1",
     "say": "^0.16.0",
     "terminal-link": "^2.1.1"

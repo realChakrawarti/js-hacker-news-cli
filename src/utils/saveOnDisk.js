@@ -1,5 +1,5 @@
-const path = require("path")
-const fs = require("fs");
+import path from "path"
+import fs from "fs";
 /**
  * 
  * @param {string} dir Directory to save the file
@@ -17,4 +17,4 @@ function saveOnDisk(dir, fileName, data) {
     );
 }
 
-module.exports = saveOnDisk;
+export default saveOnDisk;

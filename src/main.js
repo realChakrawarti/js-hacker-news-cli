@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
-const {Cli, Builtins} = require('clipanion');
-const {version, name} = require("../package.json")
+import {Cli, Builtins} from 'clipanion';
+import { readPackageJson } from './utils/readPackageJson.js';
+
+const packageJson = await readPackageJson()
 
 const [node, app, ...args] = process.argv;
  
 const cli = new Cli({
-    binaryLabel: name,
+    binaryLabel: packageJson.name,
     binaryName: `${node} ${app}`,
-    binaryVersion: version,
+    binaryVersion: packageJson.version,
 })
 
 cli.register(Builtins.HelpCommand);

@@ -1,5 +1,5 @@
-const cheerio = require('cheerio')
-const PostInfo = require("./PostInfo");
+import cheerio from 'cheerio'
+import PostInfo from "./PostInfo.js";
 
 const allPosts = [];
 
@@ -45,4 +45,4 @@ class ScrapePage {
     }
 }
 
-module.exports = ScrapePage;
+export default ScrapePage;

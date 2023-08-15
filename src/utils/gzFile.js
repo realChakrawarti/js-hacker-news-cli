@@ -1,7 +1,7 @@
-const { promisify } = require("node:util");
-const { pipeline } = require("node:stream");
-const { createGzip, createUnzip } = require("node:zlib");
-const { createReadStream, createWriteStream } = require("node:fs");
+import { promisify } from "node:util";
+import { pipeline } from "node:stream";
+import { createGzip, createUnzip } from "node:zlib";
+import { createReadStream, createWriteStream } from "node:fs";
 
 const pipe = promisify(pipeline);
 
@@ -27,4 +27,4 @@ class gzFile {
     }
 }
 
-module.exports = gzFile;
+export default gzFile;

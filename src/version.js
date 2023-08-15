@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-const { access, constants } = require("fs");
-const { JSDOM } = require("jsdom");
-const dayjs = require("dayjs");
-const notifier = require("node-notifier");
-const gzFile = require("./utils/gzFile");
-const ScrapePage = require("./utils/ScrapePage");
 
-const saveOnDisk = require("./utils/saveOnDisk");
-const readFileFromDisk = require("./utils/readFileFromDisk");
+import { access, constants } from "fs";
+import dayjs from "dayjs";
+import notifier from "node-notifier";
+import gzFile from "./utils/gzFile.js";
+import ScrapePage from "./utils/ScrapePage.js";
+
+import saveOnDisk from "./utils/saveOnDisk.js";
+// const readFileFromDisk = require("./utils/readFileFromDisk");
 
 const baseUrl = "https://news.ycombinator.com/";
 
