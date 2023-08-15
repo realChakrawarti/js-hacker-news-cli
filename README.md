@@ -4,6 +4,7 @@ Base URL: https://news.ycombinator.com/
 
 -   front?day=`YYYY-MM-DD`&p=`PAGE_NUMBER`
 -   news?p=25: 25 pages max
+-   threads?id=`mdwalters`
 -   launches
 -   newest
 -   asknew
@@ -11,7 +12,15 @@ Base URL: https://news.ycombinator.com/
 -   shownew
 -   show
 -   submitted?id=`abetaha`
--   newcomments: To get posts which are actively interacted
+-   newcomments: To get posts which are actively interacted, active posts
+
+## To Implement
+
+- [x] Frontpage
+- [ ] Show
+- [ ] Ask
+- [ ] News
+- [ ] News
 
 ### References:
 

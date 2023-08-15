@@ -4,7 +4,7 @@ import { access, constants } from "fs";
 import dayjs from "dayjs";
 import notifier from "node-notifier";
 import gzFile from "./utils/gzFile.js";
-import ScrapePage from "./utils/ScrapePage.js";
+import Page from "./utils/Page.js";
 
 import saveOnDisk from "./utils/saveOnDisk.js";
 // const readFileFromDisk = require("./utils/readFileFromDisk");
@@ -21,19 +21,19 @@ function getArticlesOfTheDay(backDate) {
     access(path, constants.F_OK, async (err) => {
         if (err) {
             console.log(`${path} does not exist`);
-            let nextPage = `front?day=${date}`;
+            let nextPage = `front?day=${date}&p=1`;
 
             do {
                 const URL = baseUrl + nextPage;
-                console.log("Scraping:", URL);
+                console.log("Scraping:", nextPage);
                 const response = await fetch(URL);
                 const html = await response.text();
             
-                const page = new ScrapePage(html);
+                const page = new Page(html);
                 nextPage = page.getNextPage();
             } while (nextPage);
 
-            arr = ScrapePage.getAllPosts();
+            arr = Page.getAllPosts();
 
             saveOnDisk(`./_data_/`, `${date}.json`, arr);
 

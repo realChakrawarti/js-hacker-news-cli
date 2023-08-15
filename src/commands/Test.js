@@ -10,7 +10,7 @@
 //   }
 // });
 
-const {Cli, Command, Option, Builtins} = require('clipanion');
+import {Cli, Command, Option, Builtins} from 'clipanion';
  
 class HelloCommand extends Command {
   static paths = [
