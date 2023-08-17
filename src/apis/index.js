@@ -1,6 +1,6 @@
 export const BASEURI = "https://news.ycombinator.com/";
 
-export const Endpoint = {
+export const Endpoint = Object.freeze({
     FRONTPAGE: "front?day=",
     NEWS: "news?p=",
     USER_THREADS: "threads?id=",
@@ -11,4 +11,10 @@ export const Endpoint = {
     ASK_NEW: "asknew",
     ASK_SHOW: "shownew",
     LAUNCH: "launches",
-};
+});
+
+export async function fetchHTML(url) {
+    console.log("Scraping:\t [%s]", url);
+    const response = await fetch(url);
+    return response.text();
+}

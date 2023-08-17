@@ -1,15 +1,11 @@
 import { access, constants } from "fs";
 import dayjs from "dayjs";
-import notifier from "node-notifier";
-import gzFile from "./gzFile.js";
-import Page from "./Page.js";
-import saveOnDisk from "./saveOnDisk.js";
 import readFileFromDisk from "./readFileFromDisk.js";
+import saveOnDisk from "./saveOnDisk.js";
 
-import { BASEURI } from "../apis/index.js";
-
-
-let arr = [];
+import { Endpoint } from "../apis/index.js";
+import Notifier from "./Notifier.js";
+import { scrapeHackerNews } from "./recursive.js";
 
 export function getArticlesOfTheDay(backDate) {
     const date = dayjs().subtract(backDate, "day").format("YYYY-MM-DD");
@@ -19,40 +15,15 @@ export function getArticlesOfTheDay(backDate) {
     access(path, constants.F_OK, async (err) => {
         if (err) {
             console.log(`${path} does not exist`);
-            let nextPage = `front?day=${date}`;
-
-            do {
-                const URL = BASEURI + nextPage;
-                console.log("Scraping:", nextPage);
-                const response = await fetch(URL);
-                const html = await response.text();
-            
-                const page = new Page(html);
-                nextPage = page.getNextPage();
-            } while (nextPage);
-
-            arr = Page.getAllPosts();
-
+            const arr = await scrapeHackerNews(Endpoint.FRONTPAGE, date);
             saveOnDisk(`./_data_/`, `${date}.json`, arr);
-
-            await gzFile.compress(
-                `./_data_/${date}.json`,
-                `./_data_/${date}.json.gz`
+            const notify = new Notifier(
+                "Frontpage:",
+                `${arr.length} posts retrived for ${date}`
             );
-
-            notifier.notify({
-                title: `Fetched Frontpage posts`,
-                message: `${arr.length} posts retrived for ${date}`,
-                icon: "Terminal Icon",
-                id: Date.now().toString,
-                appID: "Hackr",
-            });
-        }
-
-        else {
-            readFileFromDisk(`_data_/${date}.json`)
+            notify.show();
+        } else {
+            readFileFromDisk(`_data_/${date}.json`);
         }
     });
 }
-
-

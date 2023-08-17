@@ -7,7 +7,8 @@ const pipe = promisify(pipeline);
 
 class gzFile {
     /**
-     * Usage: await gzFile.compress(`./filename.json`, `./filename.json.gz`);
+     * @usage await gzFile.compress(`./filename.json`, `./filename.json.gz`);
+     * @description Creates a .gz compressed file from provided input file 
      */
     static async compress(input, output) {
         const gzip = createGzip();
@@ -17,7 +18,8 @@ class gzFile {
     }
 
     /**
-     * Usage: await gzFile.decompress(`./filename.json.gz`, `./filename.json`);
+     * @usage await gzFile.decompress(`./filename.json.gz`, `./filename.json`);
+     * @description Unzip a .gz file and extract the content
      */
     static async decompress(input, output) {
         const unzip = createUnzip();

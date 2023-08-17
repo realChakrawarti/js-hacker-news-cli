@@ -42,12 +42,12 @@ function readFileFromDisk(filePath) {
 
         slicedFileContent.forEach(element => {
           const itemData = Object.values(element)
-          const [postId, title, link, score, comments] = itemData
+          const [postId, title, link, age, score, comments] = itemData
           const href = `https://news.ycombinator.com/item?id=${postId}`
           itemData[0] = {content: postId, href }
           itemData[3] = {hAlign: "center", content: score }
           itemData[4] = {hAlign: "center", content: comments }
-          table.push(itemData)
+          table.push([postId, title, link, score, comments])
         });
         console.log(table.toString())
     });
