@@ -1,5 +1,6 @@
 import Page from "./Page.js";
-import { BASEURI, fetchHTML, Endpoint } from "../apis/index.js";
+import { fetchHTML } from "./helpers.js";
+import { Endpoint, BASEURI } from "./constants.js";
 
 export async function scrapeHackerNews(type, date) {
     let nextPage;

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import {Cli, Builtins} from 'clipanion';
-import { readPackageJson } from './utils/readPackageJson.js';
+import { readPackageJson } from './utils/helpers.js'; 
 import Frontpage from './commands/Frontpage.js';
 
 const packageJson = await readPackageJson()

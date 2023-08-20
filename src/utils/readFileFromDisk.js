@@ -1,6 +1,5 @@
 import fs from "fs";
 import Table from "cli-table3";
-// const colors = require('@colors/colors')
 
 function alignHeader(align, arr) {
   return arr.map(item => {
@@ -11,16 +10,7 @@ function alignHeader(align, arr) {
   })
 }
 
-// function colorize(color, arr) {
-//   return arr.map(item => {
-//     return {
-//       ...item, content: color(item.content)
-//     }
-//   })
-// }
-
 function readFileFromDisk(filePath) {
-    let data;
     fs.readFile(filePath, "utf8", (err, fileContent) => {
         if (err) {
             console.error(err);

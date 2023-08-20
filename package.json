@@ -1,28 +1,43 @@
 {
-  "name": "hackr",
-  "version": "0.1.0",
-  "description": "A node based CLI client for Hacker News",
-  "main": "hknews.js",
-  "type": "module",
-  "scripts": {
-    "start": "node hknews.js"
-  },
-  "bin": {
-    "hackr": "./src/main.js",
-    "test": "./src/commands/Test.js",
-    "web": "src/version.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@colors/colors": "^1.6.0",
-    "cheerio": "^1.0.0-rc.12",
-    "cli-table3": "^0.6.3",
-    "clipanion": "^4.0.0-rc.2",
-    "dayjs": "^1.11.9",
-    "node-notifier": "^10.0.1",
-    "say": "^0.16.0",
-    "terminal-link": "^2.1.1"
-  }
+    "name": "hackr",
+    "version": "0.1.0",
+    "description": "A node based CLI client for Hacker News",
+    "homepage": "https://github.com/realChakrawarti/js-hacker-news-cli#readme",
+    "main": "src/main.js",
+    "type": "module",
+    "scripts": {
+        "start": "node hknews.js"
+    },
+    "bin": {
+        "hackr": "./src/main.js"
+    },
+    "keywords": [
+        "hacker news",
+        "cli",
+        "node",
+        "clipanion"
+    ],
+    "author": {
+        "name": "Anupam Chakrawarti",
+        "url": "https://github.com/realChakrawarti"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/realChakrawarti/js-hacker-news-cli"
+    },
+    "bugs": {
+        "url": "https://github.com/realChakrawarti/js-hacker-news-cli/issues"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@colors/colors": "^1.6.0",
+        "chalk": "^5.3.0",
+        "cheerio": "^1.0.0-rc.12",
+        "cli-table3": "^0.6.3",
+        "clipanion": "^4.0.0-rc.2",
+        "dayjs": "^1.11.9",
+        "node-notifier": "^10.0.1",
+        "say": "^0.16.0",
+        "terminal-link": "^2.1.1"
+    }
 }

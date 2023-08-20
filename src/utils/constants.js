@@ -11,10 +11,5 @@ export const Endpoint = Object.freeze({
     ASK_NEW: "asknew",
     ASK_SHOW: "shownew",
     LAUNCH: "launches",
+    FROM_SITE: "from?site="
 });
-
-export async function fetchHTML(url) {
-    console.log("Scraping:\t [%s]", url);
-    const response = await fetch(url);
-    return response.text();
-}
