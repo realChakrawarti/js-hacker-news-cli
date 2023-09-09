@@ -9,6 +9,12 @@ export async function scrapeHackerNews(type, date) {
         case Endpoint.FRONTPAGE:
             nextPage = Endpoint.FRONTPAGE + date;
             break;
+        case Endpoint.ASK_NEW:
+            nextPage = Endpoint.ASK_NEW
+            break;
+        case Endpoint.ASK:
+            nextPage = Endpoint.ASK
+            break;
         default:
             throw new Error("Wrong type provided!");
     }

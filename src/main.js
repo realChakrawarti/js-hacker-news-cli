@@ -3,6 +3,7 @@
 import {Cli, Builtins} from 'clipanion';
 import { readPackageJson } from './utils/helpers.js'; 
 import Frontpage from './commands/Frontpage.js';
+import Ask from './commands/ask.js';
 
 const packageJson = await readPackageJson()
 
@@ -18,6 +19,7 @@ const cli = new Cli({
 // App commands
 
 cli.register(Frontpage)
+cli.register(Ask)
 
 // Built-ins
 

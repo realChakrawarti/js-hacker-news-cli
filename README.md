@@ -4,6 +4,10 @@ Base URL: https://news.ycombinator.com/
 
 https://news.ycombinator.com/lists
 
+https://hn.algolia.com/api
+
+https://github.com/searchableguy/hackernews_graphql : https://hngraphql.fly.dev/graphql
+
 -   front?day=`YYYY-MM-DD`&p=`PAGE_NUMBER`
 -   news?p=25: 25 pages max
 -   threads?id=`mdwalters`
@@ -48,10 +52,10 @@ https://news.ycombinator.com/lists
 -   https://github.com/rustq/napi-nanoid, Rust based implementation of JS nanoid, which is faster
 -   https://zelark.github.io/nano-id-cc/, Create random UI
 
-- https://www.npmjs.com/package/zx, Execute native commands using node CLI, google/zx
-- https://github.com/yuis-ice/note-cli, SQLite implementation
-- https://www.npmjs.com/package/marked-terminal, Markdown in Terminal
-- https://www.npmjs.com/package/update-notifier, CLI update notifier
+-   https://www.npmjs.com/package/zx, Execute native commands using node CLI, google/zx
+-   https://github.com/yuis-ice/note-cli, SQLite implementation
+-   https://www.npmjs.com/package/marked-terminal, Markdown in Terminal
+-   https://www.npmjs.com/package/update-notifier, CLI update notifier
 
 https://candle.dev/blog/javascript-to-rust/javascript-to-rust-day-1-rustup/
 
