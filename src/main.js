@@ -2,7 +2,7 @@
 
 import {Cli, Builtins} from 'clipanion';
 import { readPackageJson } from './utils/helpers.js'; 
-import Frontpage from './commands/Frontpage.js';
+import Frontpage from './commands/frontpage.js';
 import Ask from './commands/ask.js';
 
 const packageJson = await readPackageJson()

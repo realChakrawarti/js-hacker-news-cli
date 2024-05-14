@@ -32,7 +32,7 @@ export function getArticlesOfTheDay(backDate) {
                 ],
                 "left"
             );
-            fpTable.load(data);
+            // fpTable.load(data);
             fpTable.show();
         }
     });

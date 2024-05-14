@@ -19,7 +19,7 @@ export function saveOnDisk(dir, fileName, data) {
 
 export async function readPackageJson() {
     return JSON.parse(
-        await readFile(new URL(PACKAGE_JSON_PATH, import.meta.url))
+        await readFile(new URL(PACKAGE_JSON_PATH, import.meta.url), {encoding: 'utf-8'})
     );
 }
 
@@ -34,7 +34,7 @@ export async function fetchHTML(url) {
 }
 
 export async function readFileFromDisk(filePath) {
-    const data = await readFile(filePath, "utf8", (err, fileContent) => {
+    const data = await readFile(filePath, {encoding: 'utf-8'}, (err, fileContent) => {
         if (err) {
             throw new Error(`${err.name}: ${err.message}`);
         }

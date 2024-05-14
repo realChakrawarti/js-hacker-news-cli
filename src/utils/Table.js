@@ -36,7 +36,7 @@ export default class Table {
 
     createTable() {
         this.#table = new CLITable({
-            head: alignHeader(this.#align, this.#label),
+            head: Table.alignHeader(this.#align, this.#label),
             style: {
                 head: ["yellow", "bold"], //disable colors in header cells
                 // border: ["gray"], //disable colors for the border
